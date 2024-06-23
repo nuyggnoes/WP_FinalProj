@@ -1,0 +1,77 @@
+@import url(reset.css);
+
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 120px 180px;
+    min-width: max-content;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 50px;
+    border: 1px solid #aeaeae;
+    width: 634px;
+}
+.form-container .form-main-text{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.form-container form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container .input-box{
+    display: flex;
+    flex-direction: column;
+}
+.input-box input{
+    width: 400px;
+    height: 35px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.input-box input:not(:nth-child(3)){
+    margin-bottom: 30px;
+}
+.input-box input[type="submit"] {
+    border: none;
+    color: white;
+    background-color: #aeaeae;
+    width: 100%;
+    height: 50px;
+}
+.input-box input::placeholder {
+    color: #aaa;
+} 
+.input-box input:focus {
+    outline: none;
+}
+.input-box input[type="text"] {
+    letter-spacing: 0.1em;
+}
+.input-box input[type="password"] {
+    letter-spacing: 0.5em;
+}
+.error-message{
+    margin-left: 80px;
+    color: red;
+    font-size: 13px;
+}
+#pwdCheckText{
+    color: red;
+    font-size: 12px;
+    visibility: hidden;
+    text-align: right;
+    margin-bottom: 10px;
+}

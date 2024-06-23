@@ -1,0 +1,207 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.main-section{
+    padding: 180px 80px;
+}
+#img-category-list-section{
+    display: flex;
+    width: 100%;
+    min-width: 740px;
+    justify-content: space-between;
+}
+.img-category-container{
+    display: block;
+    cursor: pointer;
+    position: relative;
+    width: 99%;
+    max-width: 700px;
+    overflow: hidden;
+}
+.img-category-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1000;
+}
+.img-category-container .main-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img-category-container .main-img-overlay .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 800;
+    font-size: 5vw;
+    font-style: italic;
+}
+
+#img-slider-section {
+    width: 80%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: 50px auto;
+    position: relative;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slider img {
+    width: 25%;
+  }
+
+  .slider-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 10px;
+  }
+
+  .slider-button.prev {
+    left: 10px;
+  }
+
+  .slider-button.next {
+    right: 10px;
+  }
+  
+
+  /* 구글링 */
+  .slide_wrapper {
+    position: relative;
+    width: 990px;
+    margin: 0 auto;
+    height: 400px;
+    overflow: hidden;
+  }
+  .slides {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .slides.animated {
+    transition: 0.5s ease-out;
+  }
+  .slides li {
+    margin-top: 10px;
+    float: left;
+    width: 300px;
+    height: 400px;
+  }
+  .slides img{
+    width: 100%;
+    height: 100%;
+  }
+  .slides li:not(:last-child) {
+    margin-right: 30px;
+  }
+  .controls {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .controls span {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+  /* grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  min-width: 700px;
+  margin: 0 110px;
+}
+
+.card-container {
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+}
+
+.card-container img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-container:hover .img-overlay {
+  opacity: 1;
+}
+
+.text-container {
+  text-align: left;
+  width: 100%;
+  height: 30%;
+  padding: 30px 10px;
+}
+
+.product-name {
+  color: white;
+  font-size: 1.2vw;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-price{
+  color: white;
+  font-size: 1vw;
+  margin-top: 5px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #888;
+}
+.sale-price {
+  color: white;
+  font-weight: bold;
+}
