@@ -47,41 +47,46 @@
     font-size: 5vw;
     font-style: italic;
 }
+#product-p{
+  min-width: 740px;
+  text-align: center;
+  width: 100%;
+  margin: 100px 0 20px 0;
+}
+#product-p h1{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+#product-p p{
+  color: grey
+}
 
-#img-slider-section {
-    width: 80%;
-    max-width: 1200px;
-    overflow: hidden;
-    margin: 50px auto;
-    position: relative;
-  }
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
 
-  .slider {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
+.slider img {
+  width: 25%;
+}
 
-  .slider img {
-    width: 25%;
-  }
+.slider-container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
 
-  .slider-container {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .slider-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1000;
-    padding: 10px;
-  }
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1000;
+  padding: 10px;
+}
 
   .slider-button.prev {
     left: 10px;
@@ -121,7 +126,7 @@
   .slides li:not(:last-child) {
     margin-right: 30px;
   }
-  .controls {
+  /* .controls {
     text-align: center;
     margin-top: 50px;
   }
@@ -132,8 +137,49 @@
     margin: 0 10px;
     cursor: pointer;
   }
+  .controls {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    pointer-events: none;
+  }
 
-  /* grid */
+  .controls .prev, .controls .next {
+    pointer-events: all;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  } */
+  .slider-button {
+    margin-top: 10px;
+    height: 400px;
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 1;
+}
+.slider-button.prev {
+  display: flex;
+  align-items: center;
+    left: 0;
+}
+.slider-button.next {
+  display: flex;
+  align-items: center;
+  right: 30px;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

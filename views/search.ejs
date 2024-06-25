@@ -9,7 +9,11 @@
   <body>
     <%- include('header') %>
     <main class="main-section">
+      <% if(category == undefined){%>
+      <div></div>
+      <%} else { %>
       <h1 id="category-name"><%= category %></h1>
+      <%}%>
       <div id="search-option-container">
         <div id="total-count-container">
           <div>Total : <span class="item-count"><%= products.length%></span> items</div>
@@ -25,7 +29,7 @@
         </div>
       </div>
       <div id="grid-container">
-        <% products.forEach(product => { %>
+        <% if (products.length > 0) { %> <% products.forEach(product => { %>
         <a href="/search/detail?id=<%= product.id %>">
           <div class="card-container">
             <img src="<%= product.imageUrl %>" />
@@ -46,7 +50,9 @@
             </div>
           </div>
         </a>
-        <% }); %>
+        <% }); %> <% } else { %>
+        <div>No products found</div>
+        <% } %>
       </div>
     </main>
     <%- include('footer') %>

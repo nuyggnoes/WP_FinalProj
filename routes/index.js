@@ -15,12 +15,22 @@
 let express = require("express");
 const session = require("express-session");
 let router = express.Router();
-const { Product } = require("../models/productModel");
+const { Product, findProductBysearchKeyword } = require("../models/productModel");
 
 router.get("/", async function (req, res) {
   try {
-    const products = await Product.findAll();
-    res.render("main", { products: products, session: req.session });
+    const searchKeyword = req.query.searchKeyword;
+    let products;
+    if (searchKeyword) {
+      products = await findProductBysearchKeyword(searchKeyword);
+      (await products).forEach((product) => {
+        console.log(product.name);
+      });
+      res.render("search", { products: products, session: req.session, category: undefined });
+    } else {
+      products = await Product.findAll();
+      res.render("main", { products: products, session: req.session });
+    }
   } catch (error) {
     res.status(500).render("main", { errorMessage: "서버 오류가 발생했습니다." });
   }

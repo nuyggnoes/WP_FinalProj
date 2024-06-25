@@ -20,7 +20,7 @@ router.get("/detail", async function (req, res) {
   try {
     const product = await findProductById(productId);
     console.log(product);
-    res.render("detail", { id: productId, product: product });
+    res.render("detail", { id: productId, product: product, session: req.session });
   } catch (error) {
     res.status(500).render("search", { errorMessage: "서버 오류가 발생했습니다." });
   }

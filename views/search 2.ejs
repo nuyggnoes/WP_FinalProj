@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/search.css" />
+    <title>WPFinalProj</title>
+  </head>
+  <body>
+    <%- include('header') %>
+    <main class="main-section">
+      <h1 id="category-name"><%= category %></h1>
+      <div id="search-option-container">
+        <div id="total-count-container">
+          <div>Total : <span class="item-count"><%= products.length%></span> items</div>
+        </div>
+        <div id="search-sort-list-container">
+          <ul id="search-sort-list">
+            <li><a href="#">상품명</a></li>
+            |
+            <li><a href="#">낮은가격</a></li>
+            |
+            <li><a href="#">높은가격</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="grid-container">
+        <% products.forEach(product => { %>
+        <a href="/search/detail?id=<%= product.id %>">
+          <div class="card-container">
+            <img src="<%= product.imageUrl %>" />
+            <div class="img-overlay">
+              <div class="text-container">
+                <div class="product-name"><%= product.name %></div>
+                <% const prices = product.price.replace(/,/g, ''); const originalPrice = parseInt(prices, 10); const
+                discountRate = 0.10; const salePrice = Math.round(originalPrice * (1 - discountRate)); %> <% if
+                (product.category.includes('sale')) { %>
+                <div class="product-price">
+                  <span class="original-price"><%= originalPrice.toLocaleString() %>원</span>
+                  <span class="sale-price"><%= salePrice.toLocaleString() %>원</span>
+                </div>
+                <% } else { %>
+                <div class="product-price"><%= originalPrice.toLocaleString() %>원</div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </a>
+        <% }); %>
+      </div>
+    </main>
+    <%- include('footer') %>
+  </body>
+</html>

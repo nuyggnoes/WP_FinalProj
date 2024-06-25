@@ -35,30 +35,95 @@
           </div>
         </a>
       </div>
-      <div id="img-slider-section">
+      <div id="product-p">
+        <h1>WEEKLY BEST</h1>
+        <p>이번 주 추천 아이템!</p>
+      </div>
+      <!-- <div id="img-slider-section">
         <button class="slider-button prev" onclick="prevSlide()">&#8249;</button>
 
         <button class="slider-button next" onclick="nextSlide()">&#8250;</button>
-      </div>
+      </div> -->
       <div class="slide_wrapper">
+        <!-- <span class="slider-button prev" onclick="prevBtnClick()">&#10094;</span> -->
+        <button class="slider-button prev" onclick="prevSlide()">&#8249;</button>
         <ul class="slides">
-          <li>01 <img src="/img/category_best_img.png" alt="" /></li>
-          <li>02 <img src="/img/category_new_img.png" alt="" /></li>
-          <li>03 <img src="/img/outer3.png" alt="" /></li>
-          <li>04 <img src="/img/bottom1.png" alt="" /></li>
-          <li>05 <img src="/img/bottom5.png" alt="" /></li>
+          <li>
+            <a href="/search/detail?id=1">
+              <div class="card-container">
+                <img src="/img/category_new_img.png" />
+                <div class="img-overlay">
+                  <div class="text-container">
+                    <div class="product-name">유 헤이리 네이쳐 바이오워싱 린넨셔츠</div>
+                    <div class="product-price">42,900원</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/search/detail?id=7">
+              <div class="card-container">
+                <img src="/img/outer3.png" />
+                <div class="img-overlay">
+                  <div class="text-container">
+                    <div class="product-name">유 자브 후드 더플 와이드 울 롱코트</div>
+                    <div class="product-price">136,000원</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/search/detail?id=12">
+              <div class="card-container">
+                <img src="/img/bottom2.png" />
+                <div class="img-overlay">
+                  <div class="text-container">
+                    <div class="product-name">유 웨더 테이퍼드 와이드 데미지 패츠</div>
+                    <div class="product-price">49,900원</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/search/detail?id=8">
+              <div class="card-container">
+                <img src="/img/outer2.png" />
+                <div class="img-overlay">
+                  <div class="text-container">
+                    <div class="product-name">유 그레프 투포켓 후드 바람막이</div>
+                    <div class="product-price">34,900원</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/search/detail?id=13">
+              <div class="card-container">
+                <img src="/img/bottom3.png" />
+                <div class="img-overlay">
+                  <div class="text-container">
+                    <div class="product-name">유 MADE 4계절 투턱 와이드 슬랙스</div>
+                    <div class="product-price">36,000원</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
         </ul>
+        <!-- <span class="slider-button next" onclick="nextBtnClick()">&#10095;</span> -->
+        <button class="slider-button next" onclick="nextSlide()">&#8250;</button>
       </div>
-      <p class="controls">
-        <span class="prev" onclick="prevBtnClick()">prev</span>
-        <span class="next" onclick="nextBtnClick()">next</span>
-      </p>
       <% if (typeof errorMessage !== 'undefined') { %>
       <div class="error-message"><%= errorMessage %></div>
       <% } %>
-      <br />
-      <br />
-      <br />
+      <div id="product-p">
+        <h1>ALL PRODUCT</h1>
+        <p>원하는 옷을 골라보세요!</p>
+      </div>
       <div class="grid-container">
         <% products.forEach(product => { %>
         <a href="/search/detail?id=<%= product.id %>">

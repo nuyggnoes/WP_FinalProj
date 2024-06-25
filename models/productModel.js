@@ -253,4 +253,20 @@ const findProductById = async (id) => {
   }
 };
 
-module.exports = { Product, findProductByCategory, findProductById };
+const findProductBysearchKeyword = async (keyword) => {
+  try {
+    const product = await Product.findAll({
+      where: {
+        name: {
+          [Op.like]: `%${keyword}%`,
+        },
+      },
+    });
+    return product;
+  } catch (error) {
+    console.error("Error finding products:", error);
+    throw new Error("Error finding user: " + error.message);
+  }
+};
+
+module.exports = { Product, findProductByCategory, findProductById, findProductBysearchKeyword };

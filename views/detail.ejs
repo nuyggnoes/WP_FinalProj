@@ -9,12 +9,32 @@
   <body>
     <%- include('header') %>
     <main class="main-section">
-      <div class="card-container">
-        <img src="<%= product.imageUrl %>" />
-        <div class="img-overlay">
-          <div class="text-container">
-            <div class="product-name"><%= product.name %></div>
-            <div class="product-price"><%= product.price %>원</div>
+      <div id="detail-container">
+        <div id="img-container">
+          <img src="<%= product.imageUrl %>" />
+        </div>
+        <div class="text-container">
+          <div class="product-name"><%= product.name %></div>
+          <div class="product-description"><%= product.description %></div>
+          <div id="option">
+            <div class="option-div">
+              <div>판매가</div>
+              <div id="product-price"><%= product.price %>원</div>
+            </div>
+            <div class="option-div">
+              <div>적립금</div>
+              <% const prices = product.price.replace(/,/g, ''); const originalPrice = parseInt(prices, 10); const point
+              = originalPrice * 0.1; %>
+              <p>1 % (<%= point %>p)</p>
+            </div>
+            <div class="option-div">
+              <div>배송비</div>
+              <p>1,000원</p>
+            </div>
+          </div>
+          <div id=" btn-container">
+            <a href="#" id="to-buy-btn">Buy It Now</a>
+            <a href="#" id="to-cart-btn">Add To Cart</a>
           </div>
         </div>
       </div>

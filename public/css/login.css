@@ -42,6 +42,7 @@
     color: white;
     background-color: #aeaeae;
     width: 100px;
+    cursor: pointer;
 }
 .input-box input:not([type="submit"]) {
     width: 400px;

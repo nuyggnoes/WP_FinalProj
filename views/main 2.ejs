@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>WPFinalProj</title>
+  </head>
+  <body>
+    <%- include('header') %>
+    <main class="main-section">
+      <div id="img-category-list-section">
+        <a href="/search?category=New">
+          <div class="img-category-container">
+            <img src="/img/category_new_img.png" />
+            <div class="main-img-overlay">
+              <div class="title">NEW</div>
+            </div>
+          </div>
+        </a>
+        <a href="/search?category=Best">
+          <div class="img-category-container">
+            <img src="/img/category_best_img.png" />
+            <div class="main-img-overlay">
+              <div class="title">BEST</div>
+            </div>
+          </div>
+        </a>
+        <a href="/search?category=Sale">
+          <div class="img-category-container">
+            <img src="/img/category_sale_img.png" />
+            <div class="main-img-overlay">
+              <div class="title">SALE</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div id="img-slider-section">
+        <button class="slider-button prev" onclick="prevSlide()">&#8249;</button>
+
+        <button class="slider-button next" onclick="nextSlide()">&#8250;</button>
+      </div>
+      <div class="slide_wrapper">
+        <ul class="slides">
+          <li>01 <img src="/img/category_best_img.png" alt="" /></li>
+          <li>02 <img src="/img/category_new_img.png" alt="" /></li>
+          <li>03 <img src="/img/outer3.png" alt="" /></li>
+          <li>04 <img src="/img/bottom1.png" alt="" /></li>
+          <li>05 <img src="/img/bottom5.png" alt="" /></li>
+        </ul>
+      </div>
+      <p class="controls">
+        <span class="prev" onclick="prevBtnClick()">prev</span>
+        <span class="next" onclick="nextBtnClick()">next</span>
+      </p>
+      <% if (typeof errorMessage !== 'undefined') { %>
+      <div class="error-message"><%= errorMessage %></div>
+      <% } %>
+      <br />
+      <br />
+      <br />
+      <div class="grid-container">
+        <% products.forEach(product => { %>
+        <a href="/search/detail?id=<%= product.id %>">
+          <div class="card-container">
+            <img src="<%= product.imageUrl %>" />
+            <div class="img-overlay">
+              <div class="text-container">
+                <div class="product-name"><%= product.name %></div>
+                <% const prices = product.price.replace(/,/g, ''); const originalPrice = parseInt(prices, 10); const
+                discountRate = 0.10; const salePrice = Math.round(originalPrice * (1 - discountRate)); %> <% if
+                (product.category.includes('sale')) { %>
+                <div class="product-price">
+                  <span class="original-price"><%= originalPrice.toLocaleString() %>원</span>
+                  <span class="sale-price"><%= salePrice.toLocaleString() %>원</span>
+                </div>
+                <% } else { %>
+                <div class="product-price"><%= originalPrice.toLocaleString() %>원</div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </a>
+        <% }); %>
+      </div>
+    </main>
+    <%- include('footer') %>
+    <script>
+      let slides = document.querySelector(".slides"),
+        slide = document.querySelectorAll(".slides li"),
+        currentIdx = 0,
+        slideCount = slide.length,
+        slideWidth = 300,
+        slideMargin = 30,
+        prevBtn = document.querySelector(".prev"),
+        nextBtn = document.querySelector(".next");
+      makeClone();
+
+      function makeClone() {
+        for (let i = 0; i < slideCount; i++) {
+          let cloneSlide = slide[i].cloneNode(true);
+          cloneSlide.classList.add("clone");
+          slides.appendChild(cloneSlide);
+        }
+        //index 번호 4번은 슬라이드 05임
+        //  slideCount -1 초기값
+        for (let i = slideCount - 1; i >= 0; i--) {
+          let cloneSlide = slide[i].cloneNode(true);
+          cloneSlide.classList.add("clone");
+          // 원래 있던 내용 앞에 추가해야함(요소의 앞)
+          slides.prepend(cloneSlide);
+        }
+
+        updateWidth();
+        setinit();
+        setTimeout(function () {
+          slides.classList.add("animated");
+        }, 100);
+      }
+
+      // 전체 너비를 구해서 ul의 너비를 지정하는 함수
+      function updateWidth() {
+        let currentSlides = document.querySelectorAll(".slides li");
+        let newSlideCount = currentSlides.length;
+
+        let newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + "px";
+        slides.style.width = newWidth;
+      }
+
+      //초기 위치 잡는 함수
+      function setinit() {
+        // 왼쪽으로 움직일거니까 ( - )붙임
+        // 이동할 변수
+        let TranslateValue = -(slideWidth + slideMargin) * slideCount;
+        slides.style.transform = "translateX(" + TranslateValue + "px)";
+      }
+      function nextBtnClick() {
+        console.log("nextBtn clicked");
+        moveSlide(currentIdx + 1);
+      }
+      function prevBtnClick() {
+        moveSlide(currentIdx - 1);
+      }
+
+      nextBtn.addEventListener("click", function () {
+        // 지금 보고있는 슬라이드 수 +1 로 이동
+        console.log("nextBtn clicked");
+        moveSlide(currentIdx + 1);
+      });
+      prevBtn.addEventListener("click", function () {
+        // 지금 보고있는 슬라이드 수 +1 로 이동
+        moveSlide(currentIdx - 1);
+      });
+
+      // 숫자가 넘어와야 함수가 작동 하도럭
+      // next 누를수록 왼쪽으로 translate left 값이 거리만큼 이동해야함
+      // 전체가 슬라이드 너비+여백 만큼 이동해야지?
+      function moveSlide(num) {
+        // 원래는 0이었는데 사용자가 이동하면 index가 1로 바뀌어있어야 함
+        slides.style.left = -num * (slideWidth + slideMargin) + "px";
+        //이동한 다음에는 currentIdx를 반드시 슬라이드가 최종적으로 보고있는 num 숫자만큼 바껴있어야 함.
+        currentIdx = num;
+        console.log(currentIdx, slideCount);
+        // 마지막이면 1번으로 다시 돌리기
+
+        if (currentIdx == slideCount || currentIdx == -slideCount) {
+          setTimeout(function () {
+            slides.classList.remove("animated");
+            slides.style.left = "0px";
+            currentIdx = 0;
+          }, 500);
+
+          setTimeout(function () {
+            slides.classList.add("animated");
+          }, 600);
+        }
+      }
+    </script>
+  </body>
+</html>
