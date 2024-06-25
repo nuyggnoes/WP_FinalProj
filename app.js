@@ -61,7 +61,7 @@ app.use(function (err, req, res, next) {
 });
 
 // 호스트이름, 포트 설정
-const hostname = "127.0.0.1";
+const hostname = "0.0.0.0";
 const port = 3000;
 
 // app객체를 실행할 server객체를 만듦
