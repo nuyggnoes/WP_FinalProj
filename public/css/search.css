@@ -11,7 +11,7 @@ main{
     padding: 180px 80px;
 }
 #category-name{
-    font-size: 30px;
+    font-size: 2rem;
     text-align: center;
     margin: 40px 0 60px;
 }
@@ -19,7 +19,7 @@ main{
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
-    font-size: 10px;
+    font-size: 1vw;
 }
 #total-count-container{
     color:var(--grey);
@@ -39,7 +39,7 @@ main{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    min-width: 700px;
+    /* min-width: 700px; */
   }
   
   .card-container {
@@ -104,4 +104,17 @@ main{
   .sale-price {
     color: white;
     font-weight: bold;
+  }
+  @media screen and (max-width: 950px) {
+    #grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 385px) {
+    #grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
   }

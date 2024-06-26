@@ -2,12 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .main-section{
-    padding: 180px 80px;
+    padding: 10rem 5rem;
+
 }
 #img-category-list-section{
     display: flex;
     width: 100%;
-    min-width: 740px;
+    /* min-width: 740px; */
     justify-content: space-between;
 }
 .img-category-container{
@@ -48,7 +49,7 @@
     font-style: italic;
 }
 #product-p{
-  min-width: 740px;
+  /* min-width: 740px; */
   text-align: center;
   width: 100%;
   margin: 100px 0 20px 0;
@@ -100,7 +101,7 @@
   /* 구글링 */
   .slide_wrapper {
     position: relative;
-    width: 990px;
+    width: 100%;
     margin: 0 auto;
     height: 400px;
     overflow: hidden;
@@ -184,7 +185,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  min-width: 700px;
+  /* min-width: 700px; */
   margin: 0 110px;
 }
 
@@ -225,7 +226,7 @@
   text-align: left;
   width: 100%;
   height: 30%;
-  padding: 30px 10px;
+  padding: 3rem 1rem;
 }
 
 .product-name {
@@ -250,4 +251,16 @@
 .sale-price {
   color: white;
   font-weight: bold;
+}
+
+@media screen and (max-width: 950px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+
 }
