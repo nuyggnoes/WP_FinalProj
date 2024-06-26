@@ -3,7 +3,6 @@
 
 .main-section{
     padding: 10rem 5rem;
-
 }
 #img-category-list-section{
     display: flex;
@@ -127,35 +126,6 @@
   .slides li:not(:last-child) {
     margin-right: 30px;
   }
-  /* .controls {
-    text-align: center;
-    margin-top: 50px;
-  }
-  .controls span {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-  }
-  .controls {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
-    pointer-events: none;
-  }
-
-  .controls .prev, .controls .next {
-    pointer-events: all;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-  } */
   .slider-button {
     margin-top: 10px;
     height: 400px;
@@ -185,7 +155,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  /* min-width: 700px; */
   margin: 0 110px;
 }
 
@@ -258,9 +227,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    margin: 0 1vw;
   }
 }
 
 @media screen and (max-width: 420px) {
-
+  .main-section{
+    padding: 10rem 2.5rem;
+  }
 }

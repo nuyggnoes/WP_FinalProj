@@ -19,7 +19,7 @@ main{
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
-    font-size: 1vw;
+    font-size: 1rem;
 }
 #total-count-container{
     color:var(--grey);
@@ -111,10 +111,19 @@ main{
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
+    #search-option-container{
+        font-size: 0.6rem;
+    }
   }
 
-  @media screen and (max-width: 385px) {
+  @media screen and (max-width: 420px) {
     #grid-container {
         grid-template-columns: repeat(2, 1fr);
       }
+      #category-name{
+        margin-top: 0;
+    }
+    #search-option-container{
+        font-size: 0.5rem;
+    }
   }
