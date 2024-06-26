@@ -96,7 +96,7 @@ main{
    }
    .form-container{
     width: 100%;
-    padding: 1rem;
+    padding: 12rem 1rem;
     border: none;
    }
    .form-container #login-box{
