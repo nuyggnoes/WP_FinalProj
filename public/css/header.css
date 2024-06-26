@@ -75,7 +75,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    z-index: 3;
+    z-index: 11;
 }
   
 .left-sidebar.visible {
@@ -108,7 +108,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    z-index: 2;
+    z-index: 12;
 }
 .right-sidebar > a{
     padding: 10px 20px;
